@@ -25,33 +25,34 @@
       <h1 class="offscreen">
         Responsive Weather app Powered by the Open Weather A P I
       </h1>
-      <section id="searchBar" class="searchBar"></section>
-      <a href="#currentForecast" class="skip-link"
-        >Skip to Current Conditions</a
-      >
-      <form id="searBar__form" class="searchBar__form" role="search">
-        <label for="searchBar__text" class="offscreen"
-          >Enter a new location</label
+      <section id="searchBar" class="searchBar">
+        <a href="#currentForecast" class="skip-link"
+          >Skip to Current Conditions</a
         >
-        <input
-          id="searchBar__text"
-          class="searchBar__text"
-          type="text"
-          role="searchbox"
-          size="40"
-          autocomplete="off"
-          placeholder="City, State, Country"
-        />
-        <button
-          id="searchBar__button"
-          class="searchBar__button"
-          title="submit Location"
-          aria-label="Enter zip code or city, State, and Country to retrieve weather conditions"
-        >
-          <i class="fas fa-search"></i>
-          <i class="fas fa-sync fa-spin none"></i>
-        </button>
-      </form>
+        <form id="searchBar__form" class="searchBar__form" role="search">
+          <label for="searchBar__text" class="offscreen"
+            >Enter a new location</label
+          >
+          <input
+            id="searchBar__text"
+            class="searchBar__text"
+            type="text"
+            role="searchbox"
+            size="40"
+            autocomplete="off"
+            placeholder="City, State, Country"
+          />
+          <button
+            id="searchBar__button"
+            class="searchBar__button button"
+            title="submit Location"
+            aria-label="Enter zip code or city, State, and Country to retrieve weather conditions"
+          >
+            <i class="fas fa-search"></i>
+            <i class="fas fa-sync fa-spin none"></i>
+          </button>
+        </form>
+      </section>
       <section
         id="currentForecast"
         class="currentForecast"
@@ -91,6 +92,15 @@
           <i class="fas fa-sync fa-spin none"></i>
         </button>
         <button
+          id="saveLocation"
+          class="button"
+          title="Save Location"
+          arial-label="Save the current location as your home location"
+        >
+          <i class="fas fa-save"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
           id="unit"
           class="button"
           title="Toggle Measurement Units"
@@ -116,7 +126,7 @@
         role="region"
         aria-labelledby="daylyForecast__title"
       >
-        <h2 id="dailyForecast__title" class="dailyForecast__title">
+        <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">
           Six Day Forecast
         </h2>
         <div id="dailyForecast__contents" class="dailyForecast__contents"></div>
