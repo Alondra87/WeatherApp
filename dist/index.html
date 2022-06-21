@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="offscreen">
+        Responsive Weather app Powered by the Open Weather A P I
+      </h1>
+      <section id="searchBar" class="searchBar"></section>
+      <a href="#currentForecast" class="skip-link"
+        >Skip to Current Conditions</a
+      >
+      <form id="searBar__form" class="searchBar__form" role="search">
+        <label for="searchBar__text" class="offscreen"
+          >Enter a new location</label
+        >
+        <input
+          id="searchBar__text"
+          class="searchBar__text"
+          type="text"
+          role="searchbox"
+          size="40"
+          autocomplete="off"
+          placeholder="City, State, Country"
+        />
+        <button
+          id="searchBar__button"
+          class="searchBar__button"
+          title="submit Location"
+          aria-label="Enter zip code or city, State, and Country to retrieve weather conditions"
+        >
+          <i class="fas fa-search"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+      </form>
+      <section
+        id="currentForecast"
+        class="currentForecast"
+        role="region"
+        aria-labelledby="weatherLocation"
+      >
+        <h2
+          id="currentForecast__location"
+          class="currentForecast__location"
+          offscreen
+        >
+          Current Conditions
+        </h2>
+        <div
+          id="currentForecast__conditions"
+          class="currentForecast__conditions"
+        ></div>
+      </section>
+      <a href="#dailyForecast" class="skip-link">Skip to Six Day Forecast</a>
+      <nav id="navButtons" class="navButtons">
+        <button
+          id="getLocation"
+          class="button"
+          title="Get Location"
+          arial-label="Get the current weather conditions for your current location"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="home"
+          class="button"
+          title="Home weather"
+          arial-label="Get the current weather conditions for your home location"
+        >
+          <i class="fas fa-home"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="unit"
+          class="button"
+          title="Toggle Measurement Units"
+          arial-label="Toggle between metric and imperial measurement units"
+        >
+          <i class="fas fa-chart-bar"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+        <button
+          id="refresh"
+          class="button"
+          title="Refresh Weather"
+          arial-label="Refresh the current weather conditions"
+        >
+          <i class="fas fa-sync-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+      </nav>
+      <hr />
+      <section
+        id="dailyForecast"
+        class="dailyForecast"
+        role="region"
+        aria-labelledby="daylyForecast__title"
+      >
+        <h2 id="dailyForecast__title" class="dailyForecast__title">
+          Six Day Forecast
+        </h2>
+        <div id="dailyForecast__contents" class="dailyForecast__contents"></div>
+      </section>
+      <p id="confirmation" class="offscreen" aria-live="assertive"></p>
+    </main>
+  </body>
+</html>
