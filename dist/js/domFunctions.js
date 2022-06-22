@@ -19,5 +19,9 @@ export const displayError = (headerMsg, srMsg) => {
     updateScreenReaderConfirmation(srMsg);
 };
 const updateWeatherLocationHeader = (message) => {
-    const h1 = document
-}
+    const h1 = document.getElementById("currentForecast__location");
+    h1.textContent = message;
+};
+export const updateScreenReaderConfirmation = (message) => {
+    document.getElementById("confirmation").textContent = message;
+};
