@@ -1,5 +1,5 @@
 import { setLocationObject, getHomeLocation, cleanText } from "./dataFunctions.js";
-import { addSpinner, displayError, updateScreenReaderConfirmation } from "./domFunctions.js";
+import { setPlaceholderText, addSpinner, displayError, displayApiError, updateScreenReaderConfirmation } from "./domFunctions.js";
 import CurrentLocation from "./CurrentLocation.js";
 const currentLoc = new CurrentLocation();
 const initApp = () => {
@@ -17,6 +17,7 @@ const initApp = () => {
     const locationEntry = documentgetElementById("search__form");
     locationEntry.addEventListener("submit", submitNewLocation);
     // set up
+    setPlaceholderText();
     // load weather
     loadWeather();
 }
@@ -114,10 +115,23 @@ const submitNewLocation = async (event) => {
     const text = document.getElementById("searchBar__text").value;
     const entryText = cleanText(text);
     if (!entryText.length) return;
-}
+    const locationIcon = document.querySelector(".fa-search");
+    addSpinner(locationIcon);
+    const coordsData = await getCoordsFromApi(entryText, currentLoc.getUnit());
+    if (coordsData.cod === 200) {
+        //workt with api data
+        const myCoordsObj = {};
+        setLocationObject(currentLoc, myCoordsObj);
+        updateDataAndDisplay(currentLoc);
+
+    } else {
+        displayApiError(coordsData);
+    }
+};
 
 
 const updateDataAndDisplay = async (locationObj) => {
+    console.log(locationObj)
     //  const weatherJson = await getWeatherFromCoords(locationObj);
     //  if (weatherJson) updateDataAndDisplay(weather, locationObj);
 }
