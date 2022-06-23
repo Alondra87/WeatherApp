@@ -1,4 +1,4 @@
-import { setLocationObject, getHomeLocation } from "./dataFunctions.js";
+import { setLocationObject, getHomeLocation, cleanText } from "./dataFunctions.js";
 import { addSpinner, displayError, updateScreenReaderConfirmation } from "./domFunctions.js";
 import CurrentLocation from "./CurrentLocation.js";
 const currentLoc = new CurrentLocation();
@@ -10,7 +10,12 @@ const initApp = () => {
     homeButton.addEventListener("click", loadWeather);
     const saveButton = document.getElementById("saveLocation");
     saveButton.addEventListener("click", saveLocation);
-
+    const unitButton = documentgetElementById("unit");
+    unitButton.addEventListener("click", setUnitPref);
+    const refreshButton = document.getElementById("refresh");
+    refreshButton.addEventListener("click", refreshWeather);
+    const locationEntry = documentgetElementById("search__form");
+    locationEntry.addEventListener("submit", submitNewLocation);
     // set up
     // load weather
     loadWeather();
@@ -91,6 +96,26 @@ const saveLocation = () => {
         );
     }
 };
+const setUnitPref = () => {
+    const unitIcon = document.querySelector(".fa-chart-bar");
+    addSpinner(unitIcon);
+    currentLoc.toggleUnit();
+    updateDataAndDisplay(currentLoc);
+}
+
+const refreshWeather = () => {
+    const refreshIcon = document.querySelector("fa-sync-alt");
+    addSpinner(refreshIcon);
+    updateDataAndDisplay(currentLoc);
+};
+
+const submitNewLocation = async (event) => {
+    event.preventDefaul();
+    const text = document.getElementById("searchBar__text").value;
+    const entryText = cleanText(text);
+    if (!entryText.length) return;
+}
+
 
 const updateDataAndDisplay = async (locationObj) => {
     //  const weatherJson = await getWeatherFromCoords(locationObj);
