@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.min.css" />
-    <script src="js/main.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
   </head>
   <body>
     <main class="fade-in">
@@ -51,25 +51,10 @@
           </button>
         </form>
       </section>
-      <section
-        id="currentForecast"
-        class="currentForecast fade-in"
-        role="region"
-        aria-labelledby="weatherLocation"
-      >
-        <h2
-          id="currentForecast__location"
-          class="currentForecast__location"
-          offscreen
-        >
-          Current Conditions
-        </h2>
-        <div
-          id="currentForecast__conditions"
-          class="currentForecast__conditions"
-        >     
+      <section id="currentForecast" class="currentForecast fade-in" role="region" aria-labelledby="weatherLocation">
+        <h2 id="currentForecast__location" class="currentForecast__location" offscreen>Current Conditions</h2>
+        <div id="currentForecast__conditions" class="currentForecast__conditions">     
       </div>
-
       </section>
       <a href="#dailyForecast" class="skip-link">Skip to Six Day Forecast</a>
       <nav id="navButtons" class="navButtons fade-in">
@@ -100,12 +85,7 @@
           <i class="fas fa-save"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
-        <button
-          id="unit"
-          class="button"
-          title="Toggle Measurement Units"
-          arial-label="Toggle between metric and imperial measurement units"
-        >
+        <button id="unit" class="button" title="Toggle Measurement Units" arial-label="Toggle between metric and imperial measurement units">
           <i class="fas fa-chart-bar"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -119,7 +99,7 @@
           <i class="fas fa-sync fa-spin none"></i>
         </button>
       </nav>
-      <hr fade-in>
+      <hr class="fade-in">
       <section
         id="dailyForecast"
         class="dailyForecast fade-in"
